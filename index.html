@@ -1,23 +1,643 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <title>Home</title>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width" />
-    <!--
-      Need a visual blank slate?
-      Remove all code in `styles.css`!
-    -->
-    <link rel="stylesheet" href="styles.css" />
-    <script type="module" src="script.js"></script>
-  </head>
-  <body>
-    <nav>
-      <a href="/" aria-current="page">Home</a>
-      <a href="/page2.html">Other page</a>
-    </nav>
+
+    <!-- JSON-LD for Search Engine Optimization -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebPage",
+      "name": "암보험 고지의무 완벽 가이드",
+      "description": "암보험 가입 시 고지의무에 대한 심층 분석: 위반 사례, 고지 항목, 간편심사 보험 비교 및 가입 요령을 전문가 관점에서 제공합니다.",
+      "url": "https://yourdomain.com/cancer-insurance-disclosure",
+      "mainEntity": {
+        "@type": "Guide",
+        "name": "암보험 고지의무 이해하기",
+        "description": "암보험 고지의무의 법적 배경, 필수 고지 항목, 위반 시 불이익, 그리고 유병자를 위한 간편심사 보험에 대한 상세 정보.",
+        "about": [
+          {
+            "@type": "Product",
+            "name": "암보험 표준형",
+            "description": "건강한 사람들을 위한 일반적인 암보험 상품. 고지의무 심사가 엄격함.",
+            "offers": {
+              "@type": "Offer",
+              "priceSpecification": {
+                "@type": "PriceSpecification",
+                "priceCurrency": "KRW",
+                "minPrice": "20000"
+              }
+            }
+          },
+          {
+            "@type": "Product",
+            "name": "암보험 간편심사형",
+            "description": "유병자를 위한 암보험 상품. 고지의무 항목이 간소화되어 있음. 보험료가 높을 수 있음.",
+            "offers": {
+              "@type": "Offer",
+              "priceSpecification": {
+                "@type": "PriceSpecification",
+                "priceCurrency": "KRW",
+                "minPrice": "40000"
+              }
+            }
+          }
+        ],
+        "inLanguage": "ko"
+      },
+      "author": {
+        "@type": "Organization",
+        "name": "보험 정보 연구소"
+      },
+      "datePublished": "2026-01-09",
+      "dateModified": "2026-01-09"
+    }
+    </script>
+
+    <!-- Google Fonts for professional look -->
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;700&display=swap" rel="stylesheet">
+
+    <style>
+        /* CSS Reset and Global Styles */
+        body {
+            font-family: "Noto Sans KR", sans-serif;
+            margin: 0;
+            padding: 0;
+            line-height: 1.8;
+            background-color: #f7f9fc;
+            color: #333;
+        }
+        main {
+            max-width: 1000px;
+            margin: 2rem auto;
+            padding: 0 1rem;
+            background-color: #ffffff;
+            border-radius: 12px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+        }
+        h1, h2, h3 {
+            color: #004d99;
+            text-align: center;
+            font-weight: 700;
+        }
+        h2 {
+            padding-top: 1.5rem;
+            font-size: 2rem;
+            border-bottom: 2px solid #e0eaf4;
+            padding-bottom: 0.5rem;
+            margin-bottom: 2rem;
+        }
+        h3 {
+            font-size: 1.5rem;
+            color: #0077c2;
+            margin-top: 2rem;
+            border-left: 5px solid #00aaff;
+            padding-left: 1rem;
+        }
+        p {
+            margin-bottom: 1.5rem;
+        }
+        a {
+            color: #0077c2;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+        a:hover {
+            color: #00aaff;
+        }
+        .container {
+            padding: 2rem;
+        }
+
+        /* Header and Navigation */
+        header {
+            background-color: #004d99;
+            color: white;
+            padding: 2rem 1rem;
+            text-align: center;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+        header h1 {
+            color: white;
+            font-size: 1.8rem;
+            margin-bottom: 0.5rem;
+        }
+        nav ul {
+            list-style: none;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-top: 1rem;
+            flex-wrap: wrap;
+        }
+        nav a {
+            color: white;
+            font-weight: 600;
+            padding: 0.5rem 1rem;
+            border-radius: 4px;
+            transition: background-color 0.3s ease;
+        }
+        nav a:hover {
+            background-color: #0066cc;
+            color: white;
+        }
+
+        /* Section Specific Styles */
+        .highlight-box {
+            background-color: #e6f7ff;
+            border-left: 6px solid #00aaff;
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+            border-radius: 8px;
+        }
+        .highlight-box p {
+            margin: 0;
+            font-size: 1.1rem;
+        }
+        .cta-button {
+            display: block;
+            background-color: #ff6600;
+            color: white;
+            font-weight: 700;
+            padding: 1rem 2rem;
+            border-radius: 50px;
+            text-align: center;
+            margin: 2rem auto;
+            max-width: 300px;
+            transition: background-color 0.3s ease;
+            text-transform: uppercase;
+        }
+        .cta-button:hover {
+            background-color: #e65c00;
+        }
+
+        /* Tables and Data Presentation */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 2rem;
+            font-size: 0.95rem;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+            border-radius: 8px;
+            overflow: hidden;
+        }
+        th, td {
+            padding: 1rem 1.2rem;
+            border: 1px solid #e0eaf4;
+            text-align: left;
+        }
+        th {
+            background-color: #f0f8ff;
+            font-weight: 700;
+            color: #004d99;
+        }
+        tr:nth-child(even) {
+            background-color: #fafcff;
+        }
+        tr:hover {
+            background-color: #f0f8ff;
+        }
+
+        /* FAQ Accordion */
+        dl dt {
+            font-weight: 700;
+            margin-top: 1rem;
+            cursor: pointer;
+            color: #004d99;
+            background-color: #f0f8ff;
+            padding: 1rem;
+            border-radius: 6px;
+            border: 1px solid #e0eaf4;
+            transition: background-color 0.3s ease;
+        }
+        dl dt:hover {
+            background-color: #e6f7ff;
+        }
+        dl dt.active {
+            color: #0077c2;
+        }
+        dl dd {
+            margin-left: 0;
+            margin-bottom: 1rem;
+            padding: 1rem;
+            border: 1px solid #e0eaf4;
+            border-top: none;
+            border-radius: 0 0 6px 6px;
+            background-color: #ffffff;
+            display: none;
+        }
+        dl dt.active + dd {
+            display: block;
+        }
+
+        /* Keyword Tags */
+        .keyword-tags {
+            margin: 1.5rem 0;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            justify-content: center;
+            padding: 1rem;
+            background-color: #f7f9fc;
+            border-radius: 8px;
+        }
+        .keyword-tags a {
+            background-color: #e0f0ff;
+            color: #0066cc;
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            text-decoration: none;
+            transition: background-color 0.3s ease, color 0.3s ease;
+            border: 1px solid #b3d1ff;
+        }
+        .keyword-tags a:hover {
+            background-color: #0066cc;
+            color: white;
+        }
+
+        /* Form Elements for Dwell Time */
+        .self-check-form {
+            background-color: #f9f9f9;
+            border: 1px solid #ddd;
+            padding: 2rem;
+            border-radius: 8px;
+            margin-bottom: 2rem;
+        }
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+        .form-group label {
+            display: block;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            color: #004d99;
+        }
+        .form-group input[type="radio"], .form-group input[type="checkbox"] {
+            margin-right: 0.5rem;
+        }
+        .form-group input[type="submit"] {
+            background-color: #ff6600;
+            color: white;
+            padding: 0.75rem 1.5rem;
+            border: none;
+            border-radius: 4px;
+            font-weight: 700;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+        .form-group input[type="submit"]:hover {
+            background-color: #e65c00;
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 2rem;
+            font-size: 0.9rem;
+            color: #777;
+            background-color: #f0f0f0;
+            margin-top: 2rem;
+            border-top: 1px solid #e0e0e0;
+        }
+
+        /* External Link Section */
+        .external-links {
+            background-color: #fafcff;
+            padding: 1.5rem;
+            border-radius: 8px;
+            border: 1px solid #e0eaf4;
+            margin-top: 2rem;
+        }
+        .external-links ul {
+            list-style: none;
+            padding: 0;
+        }
+        .external-links li {
+            margin-bottom: 0.8rem;
+        }
+        .external-links a {
+            color: #0077c2;
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>암보험 고지의무 완벽 가이드</h1>
+        <p>고지의무 위반 없는 안전한 암보험 가입을 위한 필수 정보</p>
+        <nav>
+            <ul>
+                <li><a href="#intro">고지의무란?</a></li>
+                <li><a href="#disclosure-details">고지 항목 분석</a></li>
+                <li><a href="#consequences">위반 시 불이익</a></li>
+                <li><a href="#simplified-insurance">간편심사 비교</a></li>
+                <li><a href="#price-guide">가입 비용과 순위</a></li>
+                <li><a href="#faq">자주 묻는 질문</a></li>
+                <li><a href="#consultation">무료 상담</a></li>
+            </ul>
+        </nav>
+    </header>
+
     <main>
-      <h1>Home page</h1>
+        <div class="container">
+            <section id="intro">
+                <h2>암보험 가입의 핵심: 고지의무를 반드시 알아야 하는 이유</h2>
+                <p><strong>암보험고지의무</strong>란 보험 계약을 체결할 때 보험 가입자가 자신의 과거 병력이나 건강 상태 등을 보험사에 정확하게 알릴 의무를 말합니다. 이는 보험 계약의 기본 원칙 중 하나로, 상법 제651조에 명시되어 있습니다. 보험은 다수의 가입자가 공동으로 위험을 분담하는 시스템이기 때문에, 특정 가입자가 자신의 위험을 속여서 가입하게 되면 다른 선의의 가입자에게 피해를 줄 수 있습니다.</p>
+                <p>특히 <strong>암보험</strong>은 일반 질병에 비해 발병률과 치료비가 높은 중대 질병을 보장하기 때문에, 고지의무 심사가 더욱 엄격합니다. 2026년 현재에도 암 발병률이 지속적으로 증가함에 따라, 보험사들은 더욱 철저하게 가입 심사를 진행하고 있습니다. 따라서 가입 전 <strong>암보험고지의무</strong>를 정확하게 이해하지 못하고 가입하게 되면, 나중에 보험금을 청구했을 때 고지의무 위반으로 인해 보험금 지급이 거절되거나 최악의 경우 계약 자체가 해지되는 심각한 불이익을 당할 수 있습니다.</p>
+
+                <div class="keyword-tags" aria-label="연관 키워드">
+                    <a href="#disclosure-details">암보험고지의무 기간</a>
+                    <a href="#simplified-insurance">유병자 암보험 장점</a>
+                    <a href="#consequences">고지의무 위반 사례</a>
+                    <a href="#price-guide">암보험 가입 순위</a>
+                    <a href="#disclosure-details">간편심사 보험 차이점</a>
+                    <a href="#price-guide">암보험 저렴한곳</a>
+                    <a href="#price-guide">암보험 예상 금액</a>
+                    <a href="#review">암보험 내돈내산 후기</a>
+                    <a href="#disclosure-details">고지의무 5년</a>
+                    <a href="#consequences">보험금 지급 거절</a>
+                    <a href="#simplified-insurance">간편심사보험 장단점</a>
+                    <a href="#consultation">암보험 무료 상담</a>
+                </div>
+            </section>
+
+            <section id="disclosure-details">
+                <h2>필수 고지 항목 완벽 분석: 무엇을, 언제까지 알려야 하는가?</h2>
+                <p><strong>암보험고지의무</strong>는 무조건 모든 병력을 고지해야 하는 것은 아닙니다. 보험사에서 정한 고지 의무 기간(주로 5년) 내의 특정 항목에 대해서만 고지하면 됩니다. 하지만 이 기준을 모호하게 이해하면 고지의무 위반이 발생할 수 있으므로, 아래 핵심 내용을 정확히 숙지해야 합니다.</p>
+
+                <h3>1. 고지의무의 핵심 기간: 5년, 3개월, 1년</h3>
+                <p>일반적으로 암보험 가입 시 고지해야 하는 핵심 기간은 <strong>5년</strong>입니다. 청약서에 기재된 질문표에 따라 최근 5년 이내의 입원, 수술, 계속 치료 여부를 확인합니다. 또한 최근 3개월 이내에 특정 질병으로 진단받거나 치료받은 이력, 최근 1년 이내에 추가 검사(재검사)를 받은 이력 등도 중요하게 고지해야 합니다.</p>
+
+                <h3>2. 주요 고지 대상 질병 및 치료 이력</h3>
+                <p>고지해야 할 내용은 단순히 암 관련 질병뿐만 아니라 보험사별로 정해진 특정 질병을 포함합니다. 일반적으로 고지 대상이 되는 주요 항목은 다음과 같습니다:</p>
+                <ul>
+                    <li><strong>최근 5년 이내:</strong> 암, 협심증, 심근경색, 간경화, 뇌졸중(뇌출혈, 뇌경색), 당뇨병, 고혈압 등의 중대 질환으로 인한 입원 및 수술 이력.</li>
+                    <li><strong>최근 5년 이내:</strong> 7일 이상의 입원, 30일 이상의 계속 치료(투약 포함) 이력.</li>
+                    <li><strong>최근 3개월 이내:</strong> 의사로부터 받은 진단, 치료, 입원, 수술 여부 및 건강검진 결과에 따른 재검사 소견.</li>
+                </ul>
+                <p><strong>[핵심 체크포인트]</strong> 고지의무에서 '치료'의 개념은 매우 광범위합니다. 단순한 약 처방이나 통원 치료도 포함될 수 있으며, 완치 여부와 관계없이 진료 기록이 있다면 고지하는 것이 안전합니다. 특히 병명을 모르고 받았던 약 처방이나 건강검진 결과도 고지 대상이 될 수 있습니다.</p>
+
+                <h3>3. 고지의무 체크리스트 (2026년 기준)</h3>
+                <p>아래 표를 통해 암보험 가입 전 자신의 상황을 점검해 보세요. 정확한 고지는 향후 보험금 분쟁을 막는 첫걸음입니다.</p>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>고지 항목</th>
+                            <th>고지 기간</th>
+                            <th>세부 내용</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>입원 및 수술 이력</strong></td>
+                            <td>최근 5년 이내</td>
+                            <td>질병이나 상해로 인해 7일 이상 입원하거나 수술한 경우. 단순 검사 목적의 입원도 포함될 수 있음.</td>
+                        </tr>
+                        <tr>
+                            <td><strong>계속 치료 이력</strong></td>
+                            <td>최근 5년 이내</td>
+                            <td>동일한 질병으로 30일 이상(연속적으로) 통원 치료, 투약한 경우.</td>
+                        </tr>
+                        <tr>
+                            <td><strong>특정 질병 진단</strong></td>
+                            <td>최근 5년 이내</td>
+                            <td>암, 심장질환, 뇌질환, 간경화 등 중대 질병 진단을 받은 경우.</td>
+                        </tr>
+                        <tr>
+                            <td><strong>최근 3개월 내 증상</strong></td>
+                            <td>최근 3개월 이내</td>
+                            <td>의사로부터 진단, 치료, 입원, 수술, 추가 검사에 대한 소견을 받은 경우.</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <p><strong>암보험고지의무</strong>는 보험사마다 세부 질문 항목이 다를 수 있으므로, 청약서의 질문지를 꼼꼼히 읽어보고 가입해야 합니다. <strong>고지의무 5년</strong>이라는 기준이 있지만, 보험 상품에 따라 2년 또는 3년으로 짧아진 간편심사 보험도 존재합니다. 이들의 <strong>차이점</strong>은 보험료와 보장 내용에 큰 영향을 미치므로 신중하게 선택해야 합니다.</p>
+
+                <h3>4. 고지의무와 관련된 주요 오해</h3>
+                <p>고지의무와 관련하여 흔히 오해하는 부분이 있습니다. "완치했으니까 괜찮다", "고혈압 약은 만성병이라 고지 안 해도 된다", "단순 감기 치료는 괜찮다" 등이 대표적인 오해입니다. 실제로 보험사는 사후 심사 시 모든 의료 기록을 확인하며, 고혈압이나 당뇨병과 같은 만성질환도 암 발병 위험을 높이는 요인으로 간주하여 고지 항목에 포함시키는 경우가 많습니다. 사소한 사항이라도 애매하다면 반드시 전문가에게 문의해야 합니다. <strong>암보험고지의무</strong>를 정확하게 이행하는 것이 <strong>내돈내산</strong>으로 가입하는 고객에게 가장 중요한 <strong>장점</strong>입니다.</p>
+            </section>
+
+            <section id="consequences">
+                <h2>고지의무 위반 시 발생하는 치명적인 불이익 (사례 분석)</h2>
+                <p><strong>암보험고지의무 위반</strong>은 가입자에게 심각한 경제적 손실을 초래할 수 있습니다. 위반이 발견되었을 때 보험사가 취할 수 있는 조치는 크게 두 가지입니다: <strong>보험 계약 해지</strong>와 <strong>보험금 지급 거절</strong>입니다.</p>
+
+                <h3>1. 계약 해지 및 보험금 지급 거절</h3>
+                <p>보험사는 고지의무 위반 사실을 알게 된 날로부터 1개월 이내, 또는 계약을 체결한 날로부터 2년 이내(사기에 의한 고지 위반은 3년 이내)에 계약을 해지할 수 있습니다. 계약이 해지되면 그동안 납입했던 보험료를 돌려받지 못하거나, 아주 일부만 돌려받을 수 있습니다.</p>
+                <p>더 큰 문제는 보험금 지급 거절입니다. 고지하지 않은 병력과 관련된 질병으로 암이 발병했을 경우, 보험사는 인과관계를 주장하며 보험금 지급을 거절할 수 있습니다. 예를 들어, 갑상선 결절 진단 이력을 고지하지 않고 암보험에 가입했다가 나중에 갑상선암이 발병하면, 보험사는 고지 위반을 이유로 보험금 지급을 거절할 수 있습니다.</p>
+
+                <h3>2. 고지의무 위반 관련 주요 분쟁 사례</h3>
+                <p>실제 <strong>암보험고지의무 위반 사례</strong>를 살펴보면, 가입자가 '별일 아니다'라고 생각한 사소한 병력으로 인해 분쟁이 발생하는 경우가 많습니다. 특히 <strong>암보험고지의무 5년</strong> 이내의 기록은 철저하게 심사 대상이 됩니다.</p>
+                <div class="highlight-box">
+                    <p><strong>[사례 1] 단순한 건강검진 '재검사' 소견 미고지</strong><br>
+                    가입자는 건강검진에서 '고지혈증 수치 높음, 재검사 요망' 소견을 받았으나 별다른 증상이 없어 무시하고 암보험에 가입했습니다. 5년 후 암이 발병하여 보험금을 청구하자, 보험사는 재검사 소견을 고지하지 않은 것을 이유로 고지의무 위반을 주장했습니다. 법원에서는 재검사 소견도 중요한 고지 대상이라고 판단, 가입자가 패소한 사례가 있습니다. 이처럼 <strong>고지의무 단점</strong>은 사소한 실수로도 발생할 수 있다는 점입니다.</p>
+                </div>
+                <div class="highlight-box">
+                    <p><strong>[사례 2] 투약 이력 미고지</strong><br>
+                    가입자는 5년 전 두통으로 인해 병원에서 30일 이상 약을 처방받았으나, 병명이 '두통'이어서 심각하게 생각하지 않고 고지하지 않았습니다. 나중에 뇌종양이 발견되어 암보험금을 청구했으나, 보험사는 두통이 뇌종양의 전조 증상일 수 있다며 고지의무 위반을 주장했습니다. 이처럼 <strong>고지의무 장단점</strong>을 제대로 파악해야 합니다.</p>
+                </div>
+
+                <h3>3. 고지의무 위반 방지를 위한 2026년 가입 팁</h3>
+                <p>최근에는 보험사들이 고지의무 위반을 더욱 엄격하게 적용하는 추세입니다. 가입 전 반드시 청약서의 질문 사항을 꼼꼼히 읽어보고, 애매하거나 불분명한 사항은 설계사를 통해 보험사에 확인 요청(질의)하는 것이 가장 안전합니다. <strong>내돈내산</strong>으로 보험을 가입할 때는 설계사와의 대화 기록이나 서류 등을 남겨두는 것도 중요합니다. <strong>암보험 추천</strong>을 받을 때도 고지의무 관련 가이드라인을 확실히 제시하는 설계사를 선택해야 합니다.</p>
+            </section>
+
+            <section id="simplified-insurance">
+                <h2>유병자를 위한 대안: 간편심사 암보험 vs. 표준형 암보험 (장단점 비교)</h2>
+                <p>과거 병력 때문에 <strong>암보험고지의무</strong>가 부담스러운 분들은 <strong>간편심사 암보험</strong>(유병자 암보험)을 고려할 수 있습니다. 간편심사 보험은 표준형 보험보다 고지의무 항목을 대폭 줄여 가입 문턱을 낮춘 상품입니다. 하지만 두 상품은 <strong>장단점</strong>과 <strong>차이점</strong>이 명확하므로, 자신에게 맞는 상품을 선택하는 것이 중요합니다.</p>
+
+                <h3>1. 표준형 암보험의 특징 (건강체 보험)</h3>
+                <p><strong>고지의무:</strong> 5년 이내 입원/수술, 30일 이상 계속 치료, 3개월 이내 추가 검사 등 포괄적인 고지 항목 적용.<br>
+                <strong>보험료:</strong> 고지 항목이 많아 심사가 까다로운 대신, 보험료가 가장 <strong>저렴한곳</strong>에 속합니다.<br>
+                <strong>보장:</strong> 보장 범위가 넓고 보장 금액이 높은 경우가 많습니다. <strong>암보험 가입 순위</strong> 상위권 상품은 대부분 표준형입니다.</p>
+
+                <h3>2. 간편심사 암보험의 특징 (유병자 보험)</h3>
+                <p><strong>고지의무:</strong> 3.2.5(3개월 이내 입원/수술 필요 소견, 2년 이내 입원/수술 이력, 5년 이내 암 진단 이력) 등 핵심적인 3~4가지 항목만 고지하도록 간소화됩니다. 고혈압, 당뇨와 같은 만성질환이 있어도 고지하지 않고 가입 가능한 경우가 많습니다.<br>
+                <strong>보험료:</strong> 표준형에 비해 위험률이 높게 책정되어 <strong>보험료</strong>가 <strong>평균</strong>적으로 1.5배~2배 정도 높습니다.<br>
+                <strong>보장:</strong> 일부 보장 항목(특약)에 제한이 있을 수 있습니다. <strong>단점</strong>은 보험료 부담이 크다는 점입니다.</p>
+
+                <h3>3. 표준형 vs. 간편심사 보험료 및 고지 기준 비교표 (2026년 기준)</h3>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>구분</th>
+                            <th>표준형 암보험 (건강체)</th>
+                            <th>간편심사 암보험 (유병자)</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>고지 기간</strong></td>
+                            <td>최근 5년 이내 (입원, 수술, 계속 치료)</td>
+                            <td>주로 최근 2년 이내 (입원, 수술)</td>
+                        </tr>
+                        <tr>
+                            <td><strong>주요 고지 항목</strong></td>
+                            <td>입원/수술 여부, 30일 이상 계속 치료 여부, 3개월 내 추가 검사 소견 등 상세 고지.</td>
+                            <td>3.2.5(3개월 내, 2년 내, 5년 내) 등 필수 항목으로 간소화.</td>
+                        </tr>
+                        <tr>
+                            <td><strong>가입 가능 대상</strong></td>
+                            <td>건강한 사람 (고지 항목에 해당 사항 없는 경우)</td>
+                            <td>고혈압, 당뇨, 과거 병력 있는 유병자</td>
+                        </tr>
+                        <tr>
+                            <td><strong>보험료 수준</strong></td>
+                            <td>상대적으로 저렴함 (<strong>암보험 예상 금액</strong> 낮음)</td>
+                            <td>상대적으로 비쌈 (할증 적용)</td>
+                        </tr>
+                        <tr>
+                            <td><strong>장점</strong></td>
+                            <td>저렴한 <strong>금액</strong>으로 넓은 보장 가능</td>
+                            <td><strong>가입</strong> 문턱이 낮아 유병자도 쉽게 가입 가능</td>
+                        </tr>
+                        <tr>
+                            <td><strong>단점</strong></td>
+                            <td>고지 항목이 많아 심사가 까다로움</td>
+                            <td>보험료가 비쌈, 일부 보장 제한될 수 있음</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <h3>4. 나에게 맞는 상품 선택 기준</h3>
+                <p><strong>암보험고지의무</strong> 때문에 고민이라면, 우선 표준형 암보험으로 심사를 시도해보고 거절되면 간편심사형으로 눈을 돌리는 것이 좋습니다. 특히 경증 만성질환(고혈압, 당뇨)이 있는 경우에도, 표준형 상품 중 '할증 가입'을 통해 가입 가능한 경우도 있습니다. <strong>암보험 추천</strong>을 받을 때 전문가와 상담하여 자신의 병력에 따라 표준형, 간편심사형, 또는 조건부 승인(부담보 설정) 등 다양한 옵션을 비교해야 합니다.</p>
+            </section>
+
+            <section id="price-guide">
+                <h2>암보험 가입 비용 및 순위 분석: 저렴한 곳 찾는 방법</h2>
+                <p><strong>암보험 가입</strong> 시 <strong>고지의무</strong> 준수 여부는 보험료를 결정하는 가장 중요한 요소 중 하나입니다. 고지 사항에 문제가 없다면 <strong>저렴한곳</strong>을 찾는 것이 중요하며, 유병자라면 할증 <strong>금액</strong>을 최소화하는 것이 관건입니다.</p>
+
+                <h3>1. 암보험료를 결정하는 핵심 요소</h3>
+                <p><strong>나이와 성별:</strong> 나이가 많을수록 보험료는 비싸집니다. 여성보다 남성이 보험료가 더 비싼 경향이 있습니다 (암 발병률 차이).<br>
+                <strong>보장 범위 및 금액:</strong> 일반암, 고액암, 유사암 진단비의 <strong>예상 금액</strong>에 따라 보험료가 달라집니다. 보장 기간(90세 만기, 100세 만기)과 갱신형/비갱신형 선택도 중요합니다.<br>
+                <strong>고지의무 이행 여부:</strong> 건강 상태에 따라 <strong>할증</strong>이 붙거나 <strong>부담보(특정 신체 부위 보장 제외)</strong>가 설정될 수 있습니다. <strong>고지의무 위반</strong>은 가입 자체를 어렵게 만듭니다.</p>
+
+                <h3>2. 암보험 비교 및 순위: 2026년 가입 트렌드</h3>
+                <p>최근 <strong>암보험 추천 순위</strong> 상위권을 차지하는 상품들은 높은 진단비와 함께 면책 기간을 최소화하고, 재발/전이암에 대한 보장을 강화한 것이 특징입니다. 하지만 중요한 것은 <strong>암보험고지의무</strong>를 정확하게 이행한 후 자신에게 가장 유리한 상품을 찾는 것입니다. <strong>암보험 저렴한곳</strong>을 찾는 팁은 여러 보험사의 상품을 동시에 비교해주는 비교 사이트를 이용하는 것입니다.</p>
+
+                <h3>3. 암보험 예상 비용 및 견적 비교 (예시)</h3>
+                <p>아래 표는 <strong>암보험 평균 금액</strong>을 보여주는 예시입니다. 실제 <strong>이사비용</strong>처럼 보험료도 개인의 건강 상태와 보장 범위에 따라 크게 달라집니다. <strong>암보험고지의무</strong>를 통해 건강하다고 판단되면 표준형으로, 유병자로 판단되면 간편심사형으로 가입하게 되며, 이 두 가지의 <strong>차이점</strong>은 월 납입료에서 확연히 드러납니다. (2026년 1월 기준 40세 남성, 20년 납입, 90세 만기, 일반암 5천만원 보장 기준)</p>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>가입 유형</th>
+                            <th>월 보험료 (표준형)</th>
+                            <th>월 보험료 (간편심사형)</th>
+                            <th>비고</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>40세 남성</strong></td>
+                            <td>40,000원 ~ 60,000원</td>
+                            <td>60,000원 ~ 90,000원</td>
+                            <td>고혈압, 당뇨 등 경증 만성질환자</td>
+                        </tr>
+                        <tr>
+                            <td><strong>40세 여성</strong></td>
+                            <td>30,000원 ~ 50,000원</td>
+                            <td>50,000원 ~ 80,000원</td>
+                            <td>유병자 보험은 보험료가 약 1.5배 높음</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <p>이처럼 <strong>암보험 예상 금액</strong>을 비교해 볼 때 <strong>고지의무</strong>의 중요성이 다시 한번 강조됩니다. 건강할 때 가입하는 것이 가장 <strong>저렴한곳</strong>을 찾는 방법입니다.</p>
+
+                <h3>4. 암보험 내돈내산 후기: 고지의무의 중요성</h3>
+                <p><strong>내돈내산 후기</strong>를 찾아보면, 고지의무를 소홀히 한 가입자들이 나중에 큰 후회를 하는 경우가 많습니다. "단순히 감기약 몇 번 먹은 건데 고지 안 했더니 나중에 문제가 됐다", "설계사가 괜찮다고 해서 안 했더니 나중에 해지 통보를 받았다"는 식의 <strong>암보험고지의무 위반 후기</strong>가 많습니다. <strong>내돈내산</strong>으로 안전하게 가입하려면 반드시 청약서의 질문 사항을 꼼꼼히 체크하고, 모호한 부분은 보험사에 직접 확인해야 합니다.</p>
+            </section>
+
+            <section id="self-check">
+                <h2>암보험 가입 자격 자가 진단 체크리스트</h2>
+                <div class="self-check-form">
+                    <p><strong>암보험고지의무</strong>와 관련하여 본인이 표준형 가입이 가능한지, 간편심사가 필요한지 대략적으로 확인해볼 수 있는 체크리스트입니다. 아래 질문에 솔직하게 답변해 보세요.</p>
+                    <form onsubmit="return false;">
+                        <div class="form-group">
+                            <label>1. 최근 3개월 이내에 의사로부터 입원, 수술, 추가 검사에 대한 소견을 받은 적이 있습니까?</label>
+                            <input type="radio" name="check1" value="yes"> 예
+                            <input type="radio" name="check1" value="no"> 아니오
+                        </div>
+                        <div class="form-group">
+                            <label>2. 최근 1년 이내에 의사로부터 암을 포함한 10대 중대 질병 진단을 받은 적이 있습니까?</label>
+                            <input type="radio" name="check2" value="yes"> 예
+                            <input type="radio" name="check2" value="no"> 아니오
+                        </div>
+                        <div class="form-group">
+                            <label>3. 최근 5년 이내에 암으로 진단받거나 치료(입원, 수술, 계속 치료)를 받은 적이 있습니까?</label>
+                            <input type="radio" name="check3" value="yes"> 예
+                            <input type="radio" name="check3" value="no"> 아니오
+                        </div>
+                        <div class="form-group">
+                            <label>4. 최근 5년 이내에 질병이나 상해로 인해 7일 이상 입원하거나 수술한 적이 있습니까?</label>
+                            <input type="radio" name="check4" value="yes"> 예
+                            <input type="radio" name="check4" value="no"> 아니오
+                        </div>
+                        <div class="form-group">
+                            <label>5. 현재 고혈압이나 당뇨병과 같은 만성질환으로 인해 계속해서 약을 복용하고 있습니까?</label>
+                            <input type="radio" name="check5" value="yes"> 예
+                            <input type="radio" name="check5" value="no"> 아니오
+                        </div>
+                        <input type="submit" value="결과 확인 (상담 요청)">
+                    </form>
+                    <p style="margin-top: 1rem; color: #cc3300;">※ 위 자가 진단 결과는 참고용이며, 정확한 가입 가능 여부는 전문가와의 상담을 통해 확인하셔야 합니다.</p>
+                </div>
+            </section>
+
+            <section id="faq">
+                <h2>자주 묻는 질문 (FAQ)</h2>
+                <dl>
+                    <dt tabindex="0" aria-expanded="false">고지의무 기간(5년)이 지나면 고지하지 않아도 되나요?</dt>
+                    <dd>네, 원칙적으로 보험사별 청약서 질문 기간(대부분 5년)이 지나면 고지 의무가 소멸됩니다. 하지만 보험 상품에 따라 고지 기간이 다를 수 있으므로, 청약서의 질문을 정확하게 확인해야 합니다. <strong>암보험고지의무 5년</strong>을 기준으로 심사하며, 5년이 지나면 고지하지 않아도 되는 경우가 많습니다.</dd>
+
+                    <dt tabindex="0" aria-expanded="false">과거 병력을 잊어버렸다면 어떻게 해야 하나요?</dt>
+                    <dd>고지의무는 '중요한 사항에 한하여' '고의 또는 중대한 과실'로 알리지 않은 경우에 위반이 됩니다. 기억하지 못하는 사소한 병력은 중대한 과실로 보기 어렵습니다. 하지만 병원 기록을 통해 쉽게 확인할 수 있는 사항(입원, 수술 등)은 고의성이 인정될 수 있으므로, 가입 전 병원에 진료 기록 사본 발급을 요청하여 확인하는 것이 가장 안전합니다.</dd>
+
+                    <dt tabindex="0" aria-expanded="false">고지의무를 위반하면 무조건 보험 계약이 해지되나요?</dt>
+                    <dd>그렇지 않습니다. 보험사는 고지의무 위반 사실을 알게 된 날로부터 1개월 이내, 계약 체결일로부터 2년 이내(사기는 3년 이내)에만 계약을 해지할 수 있습니다. 2년이 경과한 후에는 고지의무 위반 사실이 밝혀져도 보험금을 지급해야 하는 '제척 기간'이 존재합니다. 하지만 이는 보험 가입자에게 유리한 조건이므로, <strong>고지의무 단점</strong>을 미리 예방하는 것이 좋습니다.</dd>
+
+                    <dt tabindex="0" aria-expanded="false">유병자 보험의 <strong>장단점</strong>은 무엇인가요?</dt>
+                    <dd><strong>장점</strong>은 표준형 보험보다 <strong>가입</strong>이 쉽다는 점입니다. <strong>고지의무</strong> 질문 항목이 간소화되어 있어 경증 만성질환자도 쉽게 가입 가능합니다. <strong>단점</strong>은 표준형 보험에 비해 <strong>보험료</strong>가 <strong>평균</strong>적으로 비싸고, 보장 범위가 일부 제한될 수 있다는 점입니다.</dd>
+                </dl>
+            </section>
+
+            <section class="external-links">
+                <h3>신뢰할 수 있는 외부 정보 출처 (참고 자료)</h3>
+                <ul>
+                    <li><a href="https://www.fss.or.kr/" target="_blank">금융감독원 (FSS)</a> - 보험 관련 소비자 보호 및 규정 안내</li>
+                    <li><a href="https://www.law.go.kr/LSW/main.html" target="_blank">법제처 국가법령정보센터</a> - 상법 제651조 (고지의무)</li>
+                    <li><a href="https://www.kili.or.kr/" target="_blank">생명보험협회</a> - 보험 관련 통계 및 상품 정보</li>
+                    <li><a href="https://namu.wiki/w/%EA%B3%A0%EC%A7%80%EC%9D%98%EB%AC%B4" target="_blank">나무위키</a> - 고지의무 일반 정보 (참고용)</li>
+                    <li><a href="https://www.yna.co.kr/" target="_blank">연합뉴스</a> - 보험금 분쟁 관련 뉴스 기사 (사례 참고)</li>
+                </ul>
+            </section>
+
+            <section id="consultation">
+                <h2>암보험 가입, <strong>고지의무</strong> 전문가에게 상담받고 안전하게 해결하세요</h2>
+                <p><strong>암보험고지의무</strong>에 대한 고민, 혼자 해결하기 어렵습니다. <strong>고지의무 위반</strong>은 돌이킬 수 없는 피해를 줄 수 있습니다. 전문적인 상담을 통해 고객님의 건강 상태에 맞는 최적의 <strong>암보험</strong> 상품을 <strong>추천</strong>받고, <strong>고지의무</strong>에 대한 정확한 해석을 확인하세요. <strong>암보험 저렴한곳</strong>, <strong>암보험 순위</strong> 등의 정보를 바탕으로 합리적인 <strong>가입</strong>을 도와드립니다.</p>
+                <a href="tel:010-1234-5678" class="cta-button">무료 상담 신청하기</a>
+                <p>전화: <strong>010-1234-5678</strong> | 이메일: info@insurance-guide.com</p>
+            </section>
+        </div>
     </main>
-  </body>
-</html>
+
+    <footer>
+        <p>&copy; 2026 보험 정보 연구소. 암보험고지의무 가이드.</p>
+    </footer>
+
+    <!-- Script for FAQ Accordion -->
+    <script>
+        document.querySelectorAll('dl dt').forEach((dt) => {
+            dt.addEventListener('click', () => {
+                const isActive = dt.classList.contains('active');
+                dt.classList.toggle('active');
+                dt.setAttribute('aria-expanded', !isActive);
+            });
+            dt.addEventListener('keydown', (e) => {
+                if (e.key === 'Enter' || e.key === ' ') {
+                    e.preventDefault();
+                    dt.click();
+                }
+            });
+        });
+    </script>
+
+  
